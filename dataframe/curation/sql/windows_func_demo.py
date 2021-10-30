@@ -90,9 +90,6 @@ if __name__ == '__main__':
     products.createOrReplaceTempView("products")
     products.printSchema()
 
-    catRevenueWindowSpec = Window.partitionBy("category")\
-        .orderBy("revenue")
-
     spark.sql("""
             select
               product,
