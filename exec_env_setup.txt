@@ -21,14 +21,14 @@ git push origin master
 # Execute the lambda to create an single-node EMR cluster
 
 # Open an SSH session with the EMR cluster from your local system,
-ssh -i spark.pem hadoop@<cluster_dns_name>
+ssh -i vinay-emr-key.pem hadoop@ec2-54-171-122-126.eu-west-1.compute.amazonaws.com
 export LC_ALL=C
 sudo yum update -y
 sudo yum install git-core -y
 pip install pyyaml==5.3.1
 
-git clone <repo_url>
-cd <repo_dir>
+git clone https://github.com/vinney1113/dataframe-examples-py.git
+cd dataframe-examples-py
 export PYTHONPATH="$PWD"
 
 # Copy 2 files (private key and .secrets) from local to EMR cluster's master node,
